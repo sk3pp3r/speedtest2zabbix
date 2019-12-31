@@ -81,19 +81,19 @@ UP=$(echo "$UP_TMP" |  awk '{ printf("%.2f\n", $1 / 1024 /1024 ) }')
 #####################
 # Write Zabbix Data #
 #####################
- echo "SpeedTest" key.download $DL >> $ZABBIX_DATA 
- echo "SpeedTest" key.upload $UP >> $ZABBIX_DATA 
- echo "SpeedTest" key.wan.ip $WAN_IP >> $ZABBIX_DATA 
- echo "SpeedTest" key.ping $PING >> $ZABBIX_DATA
- echo "SpeedTest" key.srv.name $SRV_NAME >> $ZABBIX_DATA
- echo "SpeedTest" key.srv.city $SRV_CITY >> $ZABBIX_DATA
- echo "SpeedTest" key.srv.km $SRV_KM >> $ZABBIX_DATA
+ echo "$ZABBIX_HOST" key.download $DL >> $ZABBIX_DATA 
+ echo "$ZABBIX_HOST" key.upload $UP >> $ZABBIX_DATA 
+ echo "$ZABBIX_HOST" key.wan.ip $WAN_IP >> $ZABBIX_DATA 
+ echo "$ZABBIX_HOST" key.ping $PING >> $ZABBIX_DATA
+ echo "$ZABBIX_HOST" key.srv.name $SRV_NAME >> $ZABBIX_DATA
+ echo "$ZABBIX_HOST" key.srv.city $SRV_CITY >> $ZABBIX_DATA
+ echo "$ZABBIX_HOST" key.srv.km $SRV_KM >> $ZABBIX_DATA
 
 ##########################
 # zabbix sender finction #
 ##########################
 function send_value {
-        /usr/bin/zabbix_sender -z ZABBIX_SERVER_IP_OR_FQDN -i $ZABBIX_DATA
+        /usr/bin/zabbix_sender -z $ZABBIX_SRV -i $ZABBIX_DATA
 }
 
 #######################
