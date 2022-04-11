@@ -8,7 +8,7 @@
 
 #### TL;DR: 
 1. download `spd.sh` and make it execue `(chmod)`.
-2. verify `speedtest`installed version is `2.0.0` or higher.
+2. verify `speedtest`installed version is `2.0.0` or higher. (https://github.com/sivel/speedtest-cli)
 3. import template `xml` into Zabbix and attache to speed test host.
 4. add to `cron sched`
 
